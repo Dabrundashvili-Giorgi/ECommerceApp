@@ -1,0 +1,88 @@
+<!-- Main Header Section -->
+<header class="about-header" [ngStyle]="{'background-image': 'linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(' + aboutData.header.backgroundImage + ')'}">
+  <div class="header-content">
+    <h1>{{ aboutData.header.title }}</h1>
+    <p>{{ aboutData.header.subtitle }}</p>
+  </div>
+</header>
+
+<!-- Main Content Area -->
+<main class="about-container">
+  <div class="content-wrapper">
+    
+    <!-- The History Section -->
+    <section class="history-section">
+      <h2>{{ aboutData.history.title }}</h2>
+      <p>{{ aboutData.history.text }}</p>
+    </section>
+
+    <!-- Our Story Section -->
+    <section class="story-section">
+      <div class="story-image">
+        <!-- ფოტოს ვიღებთ aboutData-დან -->
+        <img [src]="aboutData.story.image" alt="People dining in a restaurant">
+      </div>
+      <div class="story-text">
+        <h3>{{ aboutData.story.title }}</h3>
+        <p>{{ aboutData.story.text }}</p>
+      </div>
+    </section>
+
+    <section class="since-section">
+      <div class="since-text">
+        <h3>{{ aboutData.since1987.title }}</h3>
+        <!-- ვიყენებთ *ngFor-ს, რომ ორივე პარაგრაფი გამოვიტანოთ -->
+        <p *ngFor="let paragraph of aboutData.since1987.paragraphs">
+          {{ paragraph }}
+        </p>
+      </div>
+      <div class="since-image">
+        <!-- ფოტოს ვიღებთ aboutData-დან -->
+        <img [src]="aboutData.since1987.image" alt="Chef working in a kitchen">
+      </div>
+    </section>
+
+    <section class="working-hours-section">
+      <h3>{{ aboutData.workingHours.title }}</h3>
+      <p>{{ aboutData.workingHours.description }}</p>
+      <div class="hours-grid">
+        <!-- ვიყენებთ *ngFor-ს, რომ დინამიურად გამოვიტანოთ საათები -->
+        <div class="day-item" *ngFor="let item of aboutData.workingHours.schedule">
+          <span>{{ item.day }}</span>
+          <div class="time-slot">{{ item.time }}</div>
+        </div>
+      </div>
+    </section>
+
+  </div>
+
+  <!-- Our Services Section -->
+<section class="services-section">
+  <h2 class="services-title">ჩვენი სერვისები</h2>
+  <p class="services-subtitle">ეს არის ის, რასაც ჩვენ ვაკეთებთ და რაც იდეალურად გამოგვდის.</p>
+
+  <div class="services-grid">
+    <div class="service-card white">
+      <div class="icon">🍽️</div>
+      <h3>ახალი ჯანსაღი საკვები</h3>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vestibulum egestas nunc sed ultricies.</p>
+    </div>
+    <div class="service-card red">
+      <div class="icon">🚚</div>
+      <h3>უფასო სწრაფი სახლში მიტანა</h3>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vestibulum egestas nunc sed ultricies.</p>
+    </div>
+    <div class="service-card white">
+      <div class="icon">🏷️</div>
+      <h3>ფასდაკლების ბარათი</h3>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vestibulum egestas nunc sed ultricies.</p>
+    </div>
+    <div class="service-card red">
+      <div class="icon">⏱️</div>
+      <h3>დროული მომსახურება</h3>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vestibulum egestas nunc sed ultricies.</p>
+    </div>
+  </div>
+</section>
+
+</main>

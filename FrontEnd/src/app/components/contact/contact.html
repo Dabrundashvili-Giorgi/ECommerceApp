@@ -1,0 +1,42 @@
+<div class="contact-wrapper">
+  <div class="contact-top">
+    <div class="contact-info-box">
+      <div class="icon">🏠</div>
+      <p class="label">მისამართი :</p>
+      <p class="value">თბილისი, პეკინი ქ, ნ31.</p>
+    </div>
+    <div class="contact-info-box">
+      <div class="icon">📞</div>
+      <p class="label">ტელეფონი :</p>
+      <p class="value">+(995)-77-77-77<br />(032)777-777 </p>
+    </div>
+    <div class="contact-info-box">
+      <div class="icon">✉️</div>
+      <p class="label">ელ-ფოსტა :</p>
+      <p class="value">elfosta<br />info.com</p>
+    </div>
+  </div>
+
+  <div class="contact-main">
+    <form class="contact-form" (ngSubmit)="submitForm()">
+      <h2 class="form-title">დაგვიკავშირდით</h2>
+      <input type="text" placeholder="სახელი*" [(ngModel)]="name" name="name" required />
+      <input type="email" placeholder="ელ-ფოსტა*" [(ngModel)]="email" name="email" required />
+      <input type="tel" placeholder="ტელეფონი*" [(ngModel)]="phone" name="phone" required />
+      <textarea rows="4" placeholder="ტექსტი*" [(ngModel)]="message" name="message" required></textarea>
+      <button type="submit">გაგზავნა</button>
+    </form>
+
+    <div class="contact-image">
+      <img src="assets/images/contact.jpg" alt="Restaurant" />
+    </div>
+  </div>
+
+  <div class="social-icons">
+    <i class="fa fa-facebook"></i>
+    <i class="fa fa-twitter"></i>
+    <i class="fa fa-linkedin"></i>
+    <i class="fa fa-google-plus"></i>
+    <i class="fa fa-instagram"></i>
+  </div>
+</div>

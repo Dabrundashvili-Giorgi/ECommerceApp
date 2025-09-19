@@ -1,0 +1,29 @@
+<div class="cart-container">
+
+  <!-- წაშლის შეტყობინება -->
+  <div *ngIf="showDeleteMessage && deletedProductName" class="popup-message">
+    '{{ deletedProductName }}' წაიშალა კალათიდან
+  </div>
+
+  <div *ngIf="cartItems.length === 0" class="empty-message">
+    🛒 კალათა ცარიელია
+  </div>
+
+  <div *ngFor="let item of cartItems" class="cart-item">
+    <img [src]="item.imageUrl" alt="{{ item.name }}" class="cart-item-img" />
+
+    <div class="item-details">
+      <h3>{{ item.name }}</h3>
+      <p>ფასი: ₾{{ item.currentPrice }}</p>
+    </div>
+
+    <button (click)="removeItem(item.id)" class="delete-button">წაშლა</button>
+  </div>
+
+  <!-- ჯამური ღირებულება და ღილაკი -->
+  <div *ngIf="cartItems.length > 0" class="cart-summary">
+    <p><strong>ჯამური ღირებულება:</strong> ₾{{ getTotalPrice().toFixed(2) }}</p>
+    <button (click)="clearCart()" class="clear-button">ყველაფრის წაშლა</button>
+  </div>
+
+</div>

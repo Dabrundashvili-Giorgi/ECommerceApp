@@ -1,0 +1,32 @@
+<div class="detail-container" *ngIf="!isLoading && product">
+  <div class="image-wrapper">
+    <img [src]="product.imageUrl" alt="{{ product.name }}" />
+  </div>
+
+  <div class="detail-content">
+    <h2>{{ product.name }}</h2>
+    <p class="desc">{{ product.description }}</p>
+
+    <div class="info-line">
+      <span class="label">ფასი:</span>
+      <span class="value">{{ product.price }} ₾</span>
+    </div>
+
+    <div class="info-line" *ngIf="product.discountPercent">
+      <span class="label">ფასდაკლება:</span>
+      <span class="value">-{{ product.discountPercent }}%</span>
+    </div>
+
+    <div class="info-line" *ngIf="product.rating">
+      <span class="label">შეფასება:</span>
+      <span class="value">{{ product.rating }} / 5</span>
+    </div>
+
+    <div class="buttons">
+      <button class="btn add" (click)="addToCart()">დამატება კალათაში</button>
+      <button class="btn back" (click)="goBack()">← უკან დაბრუნება</button>
+    </div>
+  </div>
+</div>
+
+<p *ngIf="isLoading" class="loading">იტვირთება...</p>

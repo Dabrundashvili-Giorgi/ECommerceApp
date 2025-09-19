@@ -1,0 +1,17 @@
+<header class="custom-header">
+  <div class="logo" (click)="goHome()">🍽️ Restaurant</div>
+
+  <nav class="nav-center">
+    <span class="nav-link" (click)="navigateTo('/')">მთავარი</span>
+    <span class="nav-link" (click)="navigateTo('/contact')">კონტაქტი</span>
+    <span class="nav-link" (click)="navigateTo('/about-us')">ჩვენ შესახებ</span>
+    <span class="nav-link" *ngIf="!isLoggedIn()" (click)="navigateTo('/register')">რეგისტრაცია</span>
+    <span class="nav-link" *ngIf="!isLoggedIn()" (click)="navigateTo('/login')">ავტორიზაცია</span>
+    <span class="nav-link" *ngIf="isLoggedIn()" (click)="logout()">გასვლა</span>
+  </nav>
+
+  <div class="cart-wrapper" (click)="goToCart()">
+    <span class="cart-icon">🛒</span>
+    <span class="cart-count">{{ CartCount }}</span>
+  </div>
+</header>

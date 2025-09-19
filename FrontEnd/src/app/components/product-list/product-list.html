@@ -1,0 +1,86 @@
+
+<div class="product-list-page">
+  <div class="page-header">
+    <h1>ჩვენი კერძები</h1>
+    <p class="subtitle">აღმოაჩინეთ ჩვენი საუკეთესო შეფ-მზარეულების ყველაზე პოპულარული კერძები.</p>
+  </div>
+
+  <div class="product-slider-wrapper">
+    <div class="swiper product-swiper-container">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide" *ngFor="let product of products">
+          <div class="product-card">
+            <div class="product-image-wrapper">
+              <img [src]="product.imageUrl" [alt]="product.name" class="product-image">
+              <span *ngIf="product.discountPercent" class="discount-tag">{{ product.discountPercent }}% ფასდაკლება</span>
+            </div>
+            <div class="product-content">
+              <h3 class="product-title">{{ product.name }}</h3>
+              <p class="product-description">{{ product.shortDescription }}</p>
+              <ul class="attributes-list">
+                <li><span class="icon-tag"><i class="fas fa-tag"></i></span><span class="attribute-name">კატეგორია:</span><span class="attribute-value">{{ product.category }}</span></li>
+                <li><span class="icon-tag"><i class="fas fa-check-circle"></i></span><span class="attribute-name">მარაგი:</span><span class="attribute-value" [ngClass]="{'available': product.isAvailable, 'unavailable': !product.isAvailable}">{{ product.isAvailable ? 'კი' : 'მარაგში არ არის' }}</span></li>
+                <li><span class="icon-tag"><i class="fas fa-weight-hanging"></i></span><span class="attribute-name">წონა:</span><span class="attribute-value">{{ product.weight }}</span></li>
+                <li><span class="icon-tag" [ngClass]="{ 'is-veg': product.isVegetarian }"><i class="fas fa-leaf"></i></span><span class="attribute-name">ვეგეტარიანული:</span><span class="attribute-value">{{ product.isVegetarian ? 'კი' : 'არა' }}</span></li>
+              </ul>
+              <div class="review-line">
+                <span class="attribute-name">მომხმარებლის მიმოხილვა</span>
+                <span class="stars"><i *ngFor="let starType of getStarArray(product.rating)" class="fas" [ngClass]="{'fa-star': starType === 'full', 'fa-star-half-alt': starType === 'half', 'fa-star empty-star': starType === 'empty'}"></i></span>
+              </div>
+            </div>
+            <div class="card-footer">
+              <div class="product-price">
+                <span class="current-price">₾{{ product.currentPrice.toFixed(2) }}</span>
+                <span *ngIf="product.originalPrice" class="original-price">₾{{ product.originalPrice.toFixed(2) }}</span>
+              </div>
+              <div class="product-actions">
+                <button class="action-btn" (click)="addToWishlist(product)" title="ფავორიტებში დამატება"><i class="far fa-heart"></i></button>
+                <button class="action-btn" (click)="addToCart(product)" title="კალათაში დამატება"><i class="fas fa-shopping-cart"></i></button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="swiper-button-prev-custom">
+      <i class="fas fa-chevron-left"></i>
+    </div>
+    <div class="swiper-button-next-custom">
+      <i class="fas fa-chevron-right"></i>
+    </div>
+  </div>
+
+  <div class="view-all-button-container">
+    <button class="view-all-button">სრული მენიუს ნახვა</button>
+  </div>
+  
+</div>
+<!-- Popup Notification -->
+<div class="popup-container">
+  <div *ngFor="let popup of popups; trackBy: trackPopupById" class="popup">
+    {{ popup.message }}
+  </div>
+</div>
+<app-product-detail-section [product]="products[0]"></app-product-detail-section>
+
+<app-ourchefs></app-ourchefs>
+
+
+<!-- <div class="detail-box" *ngIf="products.length > 0">
+  <div class="detail-image">
+    <img [src]="products[0].imageUrl" alt="{{ products[0].name }}">
+  </div>
+  <div class="detail-content">
+    <h2>{{ products[0].name }}</h2>
+    <p class="short-description">{{ products[0].shortDescription }}</p>
+    <ul class="product-info-list">
+      <li><strong>Category:</strong> {{ products[0].category }}</li>
+      <li><strong>Weight:</strong> {{ products[0].weight }}</li>
+      <li><strong>Vegetarian:</strong> {{ products[0].isVegetarian ? 'Yes' : 'No' }}</li>
+      <li><strong>Available:</strong> {{ products[0].isAvailable ? '✔' : '❌' }}</li>
+    </ul>
+    <p class="price">Price: <strong>{{ products[0].currentPrice }} ₾</strong></p>
+    <button class="add-button" (click)="addToCart(products[0])">🛒 Add to Cart</button>
+  </div>
+</div> -->

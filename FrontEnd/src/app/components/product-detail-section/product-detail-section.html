@@ -1,0 +1,48 @@
+<div class="detail-container">
+<div class="popup-container">
+  <!-- *ngFor ქმნის ახალ div-ს popups მასივის თითოეული ელემენტისთვის -->
+  <div *ngFor="let popup of popups; trackBy: trackPopupById" class="popup">
+    {{ popup.message }}
+  </div>
+</div>
+
+  <div class="image-side">
+    <img [src]="product.imageUrl" [alt]="product.name" />
+  </div>
+
+  <div class="info-side">
+    <h2>{{ product.name }}</h2>
+
+    <div class="rating">
+      <span class="stars">★★★★★</span>
+      <span class="review">(4 მომხმარებლის შეფასება)</span>
+    </div>
+
+    <div class="price">₾ 4.5{{ getTotalPrice() }}</div>
+
+    <div class="quantity-row">
+      <input type="number" [value]="selectedQuantity" (input)="updateQuantity($event)" min="1" />
+      <button (click)="addToCart()" class="add-to-cart-button">კალათაში დამატება</button>
+      <button class="wish-btn" (click)="toggleFavorite()">
+        <span [innerHTML]="isFavorite ? '❤️' : '🤍'"></span>
+      </button>
+    </div>
+
+    <ul class="info-list">
+      <li>🍽️ <strong>კატეგორია:</strong> {{ product.category }}</li>
+      <li>📦 <strong>მარაგი:</strong> {{ product.available ? 'კი' : 'არა' }}</li>
+      <li>⚖️ <strong>წონა:</strong> {{ product.weight }} გ</li>
+      <li>🥬 <strong>ვეგეტარიანული:</strong> {{ product.vegetarian ? 'კი' : 'არა' }}</li>
+    </ul>
+
+    <h4>ინგრედიენტები</h4>
+    <p>მარინადში შემწვარი ბადრიჯანი, სპეციალური სოუსი, მწვანილი.</p>
+
+    <div class="social">
+      გაზიარება:
+      <span class="icon">🔗</span>
+      <span class="icon">🐦</span>
+      <span class="icon">📘</span>
+    </div>
+  </div>
+</div>
