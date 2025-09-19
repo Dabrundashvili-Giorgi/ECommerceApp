@@ -74,8 +74,11 @@ ng serve
 ---
 
 ## 📷 Screenshots
-
+**ავტორიზაცია**
 <img width="1890" height="878" alt="image" src="https://github.com/user-attachments/assets/86822e42-c735-4987-91a4-ce15f40cfcb2" />
+
+**რეგისტრაცია**
+<img width="1895" height="877" alt="image" src="https://github.com/user-attachments/assets/b9a39697-af80-402b-8df6-d5922af182a1" />
 
 ---
 
