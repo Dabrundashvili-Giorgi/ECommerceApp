@@ -59,7 +59,7 @@ Frontend (Angular)  <----->  Backend - API
 cd BackEnd
 dotnet run
 ```
-პროექტი გაეშვება:  
+ბექენდი გაეშვება:  
 👉 `http://localhost:5294/swagger`
 
 ### 🔹 Frontend
@@ -68,7 +68,7 @@ cd FrontEnd
 npm install
 ng serve 
 ```
-პროექტი გაეშვება:  
+FrontEnd გაეშვება:  
 👉 `http://localhost:4200/`
 
 ---
