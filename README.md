@@ -74,6 +74,9 @@ ng serve
 ---
 
 ## 📷 Screenshots
+
+<img width="1890" height="878" alt="image" src="https://github.com/user-attachments/assets/86822e42-c735-4987-91a4-ce15f40cfcb2" />
+
 ---
 
 ## 🧑‍💻 ავტორი
