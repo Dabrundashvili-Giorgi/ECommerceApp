@@ -119,9 +119,13 @@ Username, Code, ExpiresAt, IsUsed
 
 ### 🔹 Backend
 cd BackEnd
+
 cd ECommercePlatform
+
 dotnet restore
+
 dotnet build
+
 dotnet run
 
 გაეშვება აქ:
@@ -129,7 +133,9 @@ dotnet run
 
 ### 🔹 Frontend
 cd FrontEnd
+
 npm install
+
 ng serve
 
 FrontEnd გაეშვება:  
