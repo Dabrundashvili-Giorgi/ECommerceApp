@@ -1,161 +1,97 @@
-🍽️ Restaurant E-Commerce Platform — FullStack Project
+# 🍽️ Restaurant E-Commerce Platform (FullStack Project)
 
-📌 პროექტის სრული აღწერა
-
-ეს არის რესტორნის ელექტრონული კომერციის პლატფორმა, სადაც მომხმარებელს შეუძლია:
-
-✔ დარეგისტრირება / ავტორიზაცია (JWT Token)
-✔ პაროლის აღდგენა
-✔ მენიუს ნახვა (სლაიდერი + კატეგორიები)
-✔ კერძების კალათაში დამატება
-✔ შეფების ნახვა (სლაიდერი)
-✔ ადმინის პანელი — პროდუქტებისა და შეფების მართვა
-
-პროექტი აწყობილია FullStack არქიტექტურაზე, ორივე მხარე ერთმანეთთან მუშაობს API–ს მეშვეობით.
-
-🛠 გამოყენებული ტექნოლოგიები
-🔹 Backend — ASP.NET Core Web API
-
-(SQLite)
-
-JWT Authentication
-
-Authorization (Admin/User როლები)
-
-Password Reset (6-ნიშნა კოდით)
-
-Swagger
-
-🔹 Frontend — Angular
-
-Angular Standalone Components
+## 📌 პროექტის აღწერა
+მოგესალმებით, ეს არის **რესტორნის ელექტრონული კომერციის პლატფორმა**, რომელიც მომხმარებლებს აძლევს საშუალებას:
+- დარეგისტრირდნენ და გაიარონ ავტორიზაცია;
+- დაათვალიერონ რესტორნის მენიუ;
+- დაამატონ კერძები კალათაში;
+- გააფორმონ შეკვეთა ონლაინ;
 
 
-HttpClient — API–თან კავშირი
+პროექტი აწყობილია **FullStack არქიტექტურაზე** და იყენებს თანამედროვე ტექნოლოგიებს Frontend-სა და Backend-ში.
 
-Responsive დიზაინი
+---
 
-LocalStorage ტოკენების სამართავად
+## 🛠 გამოყენებული ტექნოლოგიები
 
-🔗 არქიტექტურა
-Frontend (Angular)
-      ⬇⬆
-    Backend
-      ⬇
- SQLite Database
+### 🔹 Backend
+- **JWT Authentication** → მომხმარებლის უსაფრთხო ავტორიზაცია;
+- **Swagger** → API Endpoint-ტესტირება;
 
-🚀 ძირითადი ფუნქციონალი
-👤 მომხმარებელი
+### 🔹 Frontend
+- **Angular (TypeScript, HTML, CSS)** → სტრუქტურა და დიზაინი;
+- **HttpClient** → API-სთან კავშირი;
+- **LocalStorage** → JWT ტოკენის შენახვა და მომხმარებლებთან კავშირი;
+- **Responsive დიზაინი** → მობილური და დესკტოპი მოწყობილობებისთვის; 
 
-რეგისტრაცია / ავტორიზაცია (JWT Token)
+---
 
-პაროლის აღდგენა (Verification code + Reset)
+## 🔗 არქიტექტურა
+პროექტი იყოფა ორ ნაწილად:
 
-სლაიდერი, პროდუქტების ლისტი
+- **Frontend (Angular)**  
+  👉 მომხმარებლის ინტერფეისი: რეგისტრაცია, ავტორიზაცია, მენიუ, კალათაში დამატებული პროდუქტები.
+- **Backend**  
+  👉 API სერვერი:  მომხმარებლები, პროდუქტები, შეკვეთები.  
 
-კალათა
+სტრუქტურა:  
+```
+Frontend (Angular)  <----->  Backend - API
+```
 
-შეკვეთის რედაქტირება
+---
 
-🧑‍🍳 შეფები
+## 🚀 ძირითადი ფუნქციონალი
 
-Chef slider
+### 👤 მომხმარებელი
+- რეგისტრაცია / ავტორიზაცია
+- სლაიდერი
+- მენიუს დათვალიერება
+- კერძების კალათაში დამატება
+- შეკვეთის გაფორმება
 
-Backend თან კავშირი
+---
 
-ადმინ პანელი (შეფები) (დამატება / რედაქტირება / წაშლა)
+## ⚙️ როგორ გავუშვათ პროექტი
 
-🛒 პროდუქტები
-
-სრული მენიუ Backend-თან კავშირში
-
-კალათაში დამატება
-
-ადმინ პანელი (პროდუქტები)  (ფასი, ფოტო, წონა, აღწერა…)
-
-🛡 რა გვაქვს უსაფრთხოებაში ?
-
-პაროლის hash + salt (HMACSHA512)
-
-JWT Token გენერაცია
-
-როლები: Admin/User
-
-Backend endpoints დაცულია [Authorize]
-
-🔐 პაროლის აღდგენის 3 საფეხური
-
-👉 ამ ეტაპზე სატესტო რეჟიმში პაროლის აღდგენის კოდი ჩანს Browser Console-ში, ხოლო რეალურ მაილ–ზეც შესაძლებელია გაგზავნა, როცა პროექტი იქნება რეალური.
-
-👉 პაროლის მოთხოვნები:
-
-მინ. 4 სიმბოლო
-
-მინ. 1 დიდი ასო
-
-მინ. 1 რიცხვი
-
-⚙️ Admin Panel 
-✔ შეფების მართვა
-
-დამატება / რედაქტირება / წაშლა
-
-ფოტო, სახელი, სპეციალობა, აღწერა
-
-✔ პროდუქტების მართვა
-
-ფოტოს შეცვლა (სტრინგი)
-
-ფასი, რაოდენობა, კატეგორია, ვეგეტარიანული: კი / არა 
-
-
-Admin Panel  Backend API–ზეა დაკავშირებული.
-
-📦 მონაცემთა ბაზის სტრუქტურა
-User
-
-Id, Username, PasswordHash, PasswordSalt, Role
-
-Product
-
-Id, Name, Description, Category, Price, Rating, Weight, ImageUrl
-
-Chef
-
-Id, Name, Specialty, Description, ImageUrl
-
-PasswordResetCode
-
-Username, Code, ExpiresAt, IsUsed
-
-🖥 როგორ გავუშვათ პროექტი
-🔹 Backend
+### 🔹 Backend
+```bash
 cd BackEnd
-cd ECommercePlatform
-dotnet restore
-dotnet build
 dotnet run
+```
+ბექენდი გაეშვება:  
+👉 `http://localhost:5294/swagger`
 
-
-გაეშვება აქ:
-👉 გასატესად მუშაობს Insomnia-ში
-
-🔹 Frontend
+### 🔹 Frontend
+```bash
 cd FrontEnd
 npm install
-ng serve
+ng serve 
+```
+FrontEnd გაეშვება:  
+👉 `http://localhost:4200/`
 
+---
 
-FrontEnd ხსნის:
-👉 http://localhost:4200/
+## 📷 Screenshots
+**ავტორიზაცია**
+<img width="1890" height="878" alt="image" src="https://github.com/user-attachments/assets/86822e42-c735-4987-91a4-ce15f40cfcb2" />
 
-📷 Screenshots
+**რეგისტრაცია**
+<img width="1895" height="877" alt="image" src="https://github.com/user-attachments/assets/b9a39697-af80-402b-8df6-d5922af182a1" />
 
-👇 სურვილის შემთხვევაში დამalugu თანამედროვე screenshots სექცია Icons + Frames ფორმატით
-(თუ გამომიგზავნი ფოტოებს — გაგიკეთებ 😎)
+---
 
-🧑‍💻 ავტორი
+## 🧑‍💻 ავტორი
+**[გიორგი დაბრუნდაშვილი]**  
+FullStack Web Developer 
 
-გიორგი დაბრუნდაშვილი
-FullStack Web Developer
-GitHub: Dabrundashvili-Giorgi
+---
+
+## 🎯 დასკვნა
+პროექტი აჩვენებს:
+- როგორ მუშაობს Frontend და Backend სინქრონულად;
+- როგორ ვიყენებთ JWT-ს უსაფრთხო ავტორიზაციისთვის;
+- როგორ შეიძლება რეალური რესტორნის ონლაინ პლატფორმის აწყობა;
+
+ამ გამოცდილებამ მომცა ცოდნა როგორც **FullStack დეველოპმენტის პრაქტიკულ ნაწილში**, ასევე თეორიულ ნაწილში, თანამედროვე ვებ-ტექნოლოგიების გამოყენებაში.
