@@ -25,7 +25,15 @@
               </ul>
               <div class="review-line">
                 <span class="attribute-name">მომხმარებლის მიმოხილვა</span>
-                <span class="stars"><i *ngFor="let starType of getStarArray(product.rating)" class="fas" [ngClass]="{'fa-star': starType === 'full', 'fa-star-half-alt': starType === 'half', 'fa-star empty-star': starType === 'empty'}"></i></span>
+                <span class="stars">
+  <i *ngFor="let starType of getStarArray(product.rating)" 
+     class="fas" 
+     [ngClass]="{
+       'fa-star': starType === 'full', 
+       'fa-star-half-alt': starType === 'half', 
+       'fa-star empty-star': starType === 'empty'
+     }"></i>
+</span>
               </div>
             </div>
             <div class="card-footer">

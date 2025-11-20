@@ -1,6 +1,8 @@
 import { Routes } from '@angular/router';
 import { authGuard } from '../app/auth.guard';
 import { OurChefsComponent } from './ourchefs/ourchefs';
+import { AdminPanelComponent } from './components/admin-panel/admin-panel.component';
+import { ForgotPasswordComponent } from './components/forgot-password.component';
 
 export const routes: Routes = [
   {
@@ -10,6 +12,10 @@ export const routes: Routes = [
   {
     path: 'login',
     loadComponent: () => import('./components/login/login.component').then(m => m.LoginComponent)
+  },
+  {
+    path: 'forgot-password', 
+    component: ForgotPasswordComponent
   },
   {
     path: 'product/:id',
@@ -39,6 +45,10 @@ export const routes: Routes = [
   {
     path: 'chefs',
     component: OurChefsComponent
+  },
+  { 
+    path: 'admin-panel', 
+    component: AdminPanelComponent
   },
   {
   path: '',

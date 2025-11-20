@@ -7,6 +7,15 @@
     <span class="nav-link" (click)="navigateTo('/about-us')">ჩვენ შესახებ</span>
     <span class="nav-link" *ngIf="!isLoggedIn()" (click)="navigateTo('/register')">რეგისტრაცია</span>
     <span class="nav-link" *ngIf="!isLoggedIn()" (click)="navigateTo('/login')">ავტორიზაცია</span>
+
+    <!--მხოლოდ ადმინს გამოუჩნდება -->
+<span 
+  class="nav-link"
+  *ngIf="isLoggedIn() && isAdmin()"
+  routerLink="/admin-panel">
+  ⚙️ ადმინის პანელი
+</span>
+
     <span class="nav-link" *ngIf="isLoggedIn()" (click)="logout()">გასვლა</span>
   </nav>
 

@@ -3,7 +3,6 @@ using System;
 using ECommercePlatform.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
-using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -16,40 +15,106 @@ namespace ECommercePlatform.Migrations
         protected override void BuildModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
-            modelBuilder
-                .HasAnnotation("ProductVersion", "9.0.4")
-                .HasAnnotation("Relational:MaxIdentifierLength", 128);
+            modelBuilder.HasAnnotation("ProductVersion", "8.0.6");
 
-            SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
+            modelBuilder.Entity("ECommercePlatform.Models.Chef", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Description")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("ImageUrl")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Specialty")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Chefs");
+                });
+
+            modelBuilder.Entity("ECommercePlatform.Models.PasswordResetCode", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("Code")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<DateTime>("ExpiresAt")
+                        .HasColumnType("TEXT");
+
+                    b.Property<bool>("IsUsed")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("Username")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("PasswordResetCodes");
+                });
 
             modelBuilder.Entity("ECommercePlatform.Models.Product", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
+                        .HasColumnType("INTEGER");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+                    b.Property<string>("Category")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
 
                     b.Property<DateTime>("CreatedAt")
-                        .HasColumnType("datetime2");
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("Description")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("ImageUrl")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("TEXT");
+
+                    b.Property<bool>("IsAvailable")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<bool>("IsVegetarian")
+                        .HasColumnType("INTEGER");
 
                     b.Property<string>("Name")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("TEXT");
 
-                    b.Property<decimal>("Price")
-                        .HasColumnType("decimal(18,2)");
+                    b.Property<double>("Price")
+                        .HasColumnType("REAL");
+
+                    b.Property<double>("Rating")
+                        .HasColumnType("REAL");
 
                     b.Property<int>("Stock")
-                        .HasColumnType("int");
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("Weight")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
 
                     b.HasKey("Id");
 
@@ -60,25 +125,23 @@ namespace ECommercePlatform.Migrations
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+                        .HasColumnType("INTEGER");
 
                     b.Property<byte[]>("PasswordHash")
                         .IsRequired()
-                        .HasColumnType("varbinary(max)");
+                        .HasColumnType("BLOB");
 
                     b.Property<byte[]>("PasswordSalt")
                         .IsRequired()
-                        .HasColumnType("varbinary(max)");
+                        .HasColumnType("BLOB");
 
                     b.Property<string>("Role")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("Username")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("TEXT");
 
                     b.HasKey("Id");
 

@@ -51,7 +51,8 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
     font-size: 14px;
   }
 }
-/* reesponsiveee product section */
+
+
 @media (max-width: 768px) {
   .product-list-page {
     padding: 20px 10px;
@@ -193,3 +194,4 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
     align-items: center;
   }
 }
+

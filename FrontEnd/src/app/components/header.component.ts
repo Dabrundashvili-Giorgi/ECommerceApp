@@ -1,52 +1,60 @@
-// header.component.ts
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CartService } from '../components/cart/cart.service';
 import { Router } from '@angular/router';
-import { RouterModule } from '@angular/router'; 
+import { AuthService } from '../services/auth.service';
 import { CommonModule } from '@angular/common';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-header',
-  templateUrl: './header.component.html',
   standalone: true,
+  templateUrl: './header.component.html',
   styleUrls: ['./header.component.css'],
   imports: [RouterModule, CommonModule]
 })
-export class HeaderComponent {
+export class HeaderComponent implements OnInit {
   CartCount: number = 0;
+  userRole: string | null = null;
 
-  constructor(private cartService: CartService, private router: Router) {
+  constructor(
+    private cartService: CartService,
+    private router: Router,
+    private authService: AuthService
+  ) {}
+
+  ngOnInit(): void {
     this.cartService.cart$.subscribe(items => {
       this.CartCount = items.reduce((sum, item) => sum + item.quantity, 0);
     });
+
+    this.authService.userRole$.subscribe(role => {
+      this.userRole = role;
+    });
+  }
+
+  isAdmin(): boolean {
+    return this.userRole === 'Admin';
   }
 
   isLoggedIn(): boolean {
-    if (typeof window !== 'undefined') {
-      return !!localStorage.getItem('token');
-    }
-    return false;
+    return this.authService.getIsLoggedIn();
   }
 
   logout(): void {
-    if (typeof window !== 'undefined') {
-      localStorage.removeItem('token');
+    this.authService.logout();
+  }
+
+  goToCart(): void {
+    if (this.isLoggedIn()) {
+      this.router.navigate(['/cart']);
+    } else {
       this.router.navigate(['/login']);
     }
   }
 
-
-goToCart(): void {
-  if (this.isLoggedIn()) {
-    this.router.navigate(['/cart']);
-  } else {
-    this.router.navigate(['/login']);
+  goHome(): void {
+    this.router.navigate(['/products']);
   }
-}
-
-goHome(): void {
-  this.router.navigate(['/products']);
-}
 
   navigateTo(path: string): void {
     this.router.navigateByUrl(path).then(() => {

@@ -1,19 +1,49 @@
 <div class="register-container">
-  <h2>რეგისტრაცია</h2>
+  <h2>📝 რეგისტრაცია</h2>
 
-  <form (ngSubmit)="onSubmit()">
-    <label>ელ-ფოსტა</label>
-    <input type="email" [(ngModel)]="email" name="email" required />
+  <form (ngSubmit)="onSubmit()" class="register-form">
+    <input 
+      type="text" 
+      [(ngModel)]="email" 
+      name="email" 
+      placeholder="მომხმარებელი ან Email" 
+      required 
+    />
 
-    <label>პაროლი</label>
-    <input type="password" [(ngModel)]="password" name="password" required />
+    <input 
+      type="password" 
+      [(ngModel)]="password" 
+      name="password" 
+      placeholder="პაროლი"
+      (input)="onPasswordInput()" 
+      (focus)="showRules = true"
+      (blur)="showRules = false"
+      required 
+    />
 
-    <label>გაიმეორე პაროლი</label>
-    <input type="password" [(ngModel)]="confirmPassword" name="confirmPassword" required />
+    <!-- წესები გამოჩნდება მხოლოდ როცა პაროლის ველი აქტიურია -->
+    <div class="password-rules" *ngIf="showRules">
+      <p [class.valid]="hasUpper">• მინ. ერთი დიდი ასო (A–Z)</p>
+      <p [class.valid]="hasNumber">• მინ. ერთი რიცხვი (0–9)</p>
+      <p [class.valid]="password.length >= 4">• მინ. 4 სიმბოლო</p>
+    </div>
 
-    <button type="submit">რეგისტრაცია</button>
+    <input 
+      type="password" 
+      [(ngModel)]="confirmPassword" 
+      name="confirmPassword" 
+      placeholder="გაიმეორეთ პაროლი"
+      required 
+    />
 
-    <p class="success" *ngIf="successMessage">{{ successMessage }}</p>
-    <p class="error" *ngIf="errorMessage">{{ errorMessage }}</p>
+    <button type="submit" [disabled]="!isPasswordValid()">რეგისტრაცია</button>
   </form>
+
+  <p class="success" *ngIf="successMessage">{{ successMessage }}</p>
+  <p class="error" *ngIf="errorMessage">{{ errorMessage }}</p>
+
+  <p class="bottom-link">
+    გაქვს უკვე ანგარიში? 
+    <a routerLink="/login">შესვლა</a>
+  </p>
 </div>

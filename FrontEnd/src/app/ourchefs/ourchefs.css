@@ -8,7 +8,6 @@
   background-color: #ffffff;
   overflow: hidden;
 }
-/* ფონის გამჭვირვალე სურათი */
 .background-overlay {
   content: '';
   position: absolute;
@@ -55,7 +54,6 @@
   color: #666;
   margin-top: 10px;
 }
-/* სლაიდერის კონტეინერი */
 .swiper-container-wrapper {
   position: relative;
   padding: 0 50px; 
@@ -64,30 +62,72 @@
   padding: 10px 0;
 }
 .chef-card {
+  position: relative;
+  overflow: hidden;
+  border-radius: 14px;
   background-color: #fff;
   border: 1px solid #eee;
   text-align: center;
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.06);
 }
-
+.chef-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.12);
+}
 .image-wrapper {
-  background-color: #f5f5f5;
-  padding: 0;
-  margin: 0;
+  position: relative;
+  overflow: hidden;
 }
 .image-wrapper img {
   width: 100%;
   height: 320px;
   object-fit: cover;
-  display: block;
+  transition: transform 0.4s ease;
 }
+.chef-card:hover .image-wrapper img {
+  transform: scale(1.08);
+}
+.chef-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.281);
+  color: #fff;
+  padding: 18px 15px;
+  text-align: center;
+  opacity: 0;
+  transform: translateY(100%);
+  transition: all 0.4s ease;
+  font-size: 0.95rem;
+  line-height: 1.4;
+  font-weight: 400;
+  border-bottom-left-radius: 14px;
+  border-bottom-right-radius: 14px;
+}
+.chef-card:hover .chef-overlay {
+  opacity: 1;
+  transform: translateY(0);
+}
+
 .info-wrapper {
-  padding: 25px 15px;
+  padding: 22px 10px 28px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 .info-wrapper h3 {
   font-family: 'Times New Roman', serif;
   font-size: 22px;
-  margin: 0 0 5px 0;
-  color: #222;
+  color: #1a1a1a;
+  font-weight: 600;
+  margin-bottom: 5px;
+  transition: color 0.3s ease;
+}
+.chef-card:hover .info-wrapper h3 {
+  color: #d34242;
 }
 .role {
   font-size: 14px;
@@ -95,32 +135,49 @@
   margin-bottom: 15px;
 }
 .stars {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 3px;
+  margin-bottom: 15px;
   color: #dcdcdc;
-  margin-bottom: 20px;
 }
 .stars .filled {
   color: #ffb400;
 }
 .socials {
-  margin-bottom: 25px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 20px;
 }
 .socials a {
-  color: #999;
-  margin: 0 8px;
-  transition: color 0.3s;
+  display: inline-flex;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  align-items: center;
+  justify-content: center;
+  background: #f3f3f3;
+  color: #444;
+  font-size: 15px;
+  transition: all 0.3s ease;
 }
 .socials a:hover {
-  color: #d34242;
+  background: #d34242;
+  color: #fff;
 }
 .profile-link {
+  display: inline-block;
   font-size: 13px;
   font-weight: 600;
   color: #444;
   text-decoration: none;
-  letter-spacing: 0.5px;
-  padding-bottom: 3px;
   border-bottom: 2px solid #ccc;
-  transition: all 0.3s;
+  padding-bottom: 2px;
+  letter-spacing: 0.3px;
+  transition: all 0.3s ease;
 }
 .profile-link:hover {
   color: #d34242;
@@ -153,7 +210,7 @@
   font-size: 16px;
   font-weight: bold;
 }
-/* 3. გამორთული ისრის სტილი (როცა ბოლოშია) */
+
 :host ::ng-deep .swiper-button-disabled {
   opacity: 0.3 !important;
   cursor: not-allowed !important; 

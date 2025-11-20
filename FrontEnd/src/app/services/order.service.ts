@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class OrderService {
-  private apiUrl = 'http://localhost:5294/api/Order'; // შეცვალე საჭიროებისამებრ
+  private apiUrl = 'http://localhost:5294/api/Order'; // 
 
   constructor(private http: HttpClient) {}
 

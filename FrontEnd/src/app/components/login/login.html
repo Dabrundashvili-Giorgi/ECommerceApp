@@ -1,15 +1,18 @@
 <div class="login-container">
-  <h2>შესვლა</h2>
+  <h2>ავტორიზაცია</h2>
 
   <form (ngSubmit)="onSubmit()">
-    <label>ელ-ფოსტა</label>
+    <label>ელ-ფოსტა ან მომხმარებელი</label>
     <input type="email" [(ngModel)]="email" name="username" required />
 
     <label>პაროლი</label>
     <input type="password" [(ngModel)]="password" name="password" required />
 
     <button type="submit">შესვლა</button>
-
+        <div class="links">
+      <a routerLink="/forgot-password">დაგავიწყდა პაროლი?</a>
+      <a routerLink="/register">არ გაქვს ანგარიში?</a>
+    </div>
     <p class="error" *ngIf="errorMessage">{{ errorMessage }}</p>
   </form>
 </div>

@@ -1,4 +1,4 @@
-<!-- Main Header Section -->
+<!-- Main ჰედერი -->
 <header class="about-header" [ngStyle]="{'background-image': 'linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(' + aboutData.header.backgroundImage + ')'}">
   <div class="header-content">
     <h1>{{ aboutData.header.title }}</h1>
@@ -6,20 +6,18 @@
   </div>
 </header>
 
-<!-- Main Content Area -->
+<!-- კონტენტი -->
 <main class="about-container">
   <div class="content-wrapper">
     
-    <!-- The History Section -->
     <section class="history-section">
       <h2>{{ aboutData.history.title }}</h2>
       <p>{{ aboutData.history.text }}</p>
-    </section>
+    </section> 
 
-    <!-- Our Story Section -->
     <section class="story-section">
       <div class="story-image">
-        <!-- ფოტოს ვიღებთ aboutData-დან -->
+
         <img [src]="aboutData.story.image" alt="People dining in a restaurant">
       </div>
       <div class="story-text">
@@ -46,7 +44,7 @@
       <h3>{{ aboutData.workingHours.title }}</h3>
       <p>{{ aboutData.workingHours.description }}</p>
       <div class="hours-grid">
-        <!-- ვიყენებთ *ngFor-ს, რომ დინამიურად გამოვიტანოთ საათები -->
+        <!-- ვიყენებ *ngFor-ს რომ დინამიურად გამოვიტანოთ საათები -->
         <div class="day-item" *ngFor="let item of aboutData.workingHours.schedule">
           <span>{{ item.day }}</span>
           <div class="time-slot">{{ item.time }}</div>
@@ -56,7 +54,7 @@
 
   </div>
 
-  <!-- Our Services Section -->
+  <!-- Our Services -->
 <section class="services-section">
   <h2 class="services-title">ჩვენი სერვისები</h2>
   <p class="services-subtitle">ეს არის ის, რასაც ჩვენ ვაკეთებთ და რაც იდეალურად გამოგვდის.</p>

@@ -2,21 +2,12 @@ using ECommercePlatform.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
-using System.Text;
 using Microsoft.OpenApi.Models;
+using System.Text;
 
 var builder = WebApplication.CreateBuilder(args);
-builder.Services.AddCors(options =>
-{
-    options.AddPolicy("AllowAngularApp",
-        builder => builder
-            .AllowAnyOrigin()
-            .AllowAnyMethod()
-            .AllowAnyHeader());
-});
+
 var MyAllowSpecificOrigins = "_myAllowSpecificOrigins";
-builder.Services.AddDbContext<AppDbContext>(options =>
-    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 builder.Services.AddCors(options =>
 {
     options.AddPolicy(name: MyAllowSpecificOrigins,
@@ -28,8 +19,14 @@ builder.Services.AddCors(options =>
         });
 });
 
+//Database
+builder.Services.AddDbContext<AppDbContext>(options =>
+    options.UseSqlite(builder.Configuration.GetConnectionString("DefaultConnection")));
+
+// Controllers
 builder.Services.AddControllers();
 
+// JWT 
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
     .AddJwtBearer(options =>
     {
@@ -42,48 +39,55 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
             ValidateAudience = false
         };
     });
-    
-builder.Services.AddEndpointsApiExplorer();
 
+
+builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen(c =>
 {
     c.SwaggerDoc("v1", new OpenApiInfo
     {
-        Title = "ECommercePlatform",
-        Version = "v1"
+        Title = "ECommercePlatform API",
+        Version = "v1",
+        Description = "ECommerce API ბექენდი "
     });
 
     c.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
     {
-        Description = @"JWT Authorization header. მაგალითი: 'Bearer {token}'",
+        Description = "JWT Token Authorization. მაგალითი: 'Bearer {token}'",
         Name = "Authorization",
         In = ParameterLocation.Header,
         Type = SecuritySchemeType.ApiKey,
         Scheme = "Bearer"
     });
 
-    c.AddSecurityRequirement(new OpenApiSecurityRequirement()
+    c.AddSecurityRequirement(new OpenApiSecurityRequirement
     {
         {
             new OpenApiSecurityScheme
             {
                 Reference = new OpenApiReference
                 {
-                    Type=ReferenceType.SecurityScheme,
-                    Id="Bearer"
+                    Type = ReferenceType.SecurityScheme,
+                    Id = "Bearer"
                 },
-                Scheme="oauth2",
-                Name="Bearer",
-                In=ParameterLocation.Header,
+                Scheme = "oauth2",
+                Name = "Bearer",
+                In = ParameterLocation.Header,
             },
             new List<string>()
         }
     });
 });
 
-
-
 var app = builder.Build();
+
+
+using (var scope = app.Services.CreateScope())
+{
+    var context = scope.ServiceProvider.GetRequiredService<AppDbContext>();
+    AppDbContext.SeedData(context);
+}
+
 
 if (app.Environment.IsDevelopment())
 {
@@ -94,9 +98,8 @@ if (app.Environment.IsDevelopment())
 app.UseHttpsRedirection();
 app.UseCors(MyAllowSpecificOrigins);
 app.UseAuthentication();
-app.UseAuthorization();
+app.UseAuthorization();        // Amis dakomentarebis mere emateba produqtebi da redaqtirdeba 
 
 app.MapControllers();
 
 app.Run();
-

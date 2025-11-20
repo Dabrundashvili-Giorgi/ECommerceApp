@@ -1,6 +1,5 @@
 <div class="detail-container">
 <div class="popup-container">
-  <!-- *ngFor ქმნის ახალ div-ს popups მასივის თითოეული ელემენტისთვის -->
   <div *ngFor="let popup of popups; trackBy: trackPopupById" class="popup">
     {{ popup.message }}
   </div>

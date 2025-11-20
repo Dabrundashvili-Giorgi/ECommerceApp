@@ -55,7 +55,7 @@ trackPopupById(index: number, popup: Popup): number {
   }
 
   showTemporaryPopup(message: string) {
-    // 1. ვქმნით ახალ ფოფაპს უნიკალური ID-ით
+    // 1. შევქმნით ახალ ფოფაპს უნიკალური ID-ით
     const newPopup: Popup = {
       id: Date.now(), 
       message: message
@@ -63,7 +63,6 @@ trackPopupById(index: number, popup: Popup): number {
 
     this.popups.push(newPopup);
 
-    // 3. 2 წამის შემდეგ ვშლით ამ კონკრეტულ ფოფაპს ID-ის მიხედვით
     setTimeout(() => {
       const index = this.popups.findIndex(p => p.id === newPopup.id);
       if (index > -1) {

@@ -1,0 +1,19 @@
+
+<div class="admin-panel">
+  <h2>⚙️ ადმინის პანელი</h2>
+
+  <div class="tabs">
+    <button [class.active]="activeTab === 'products'" (click)="activeTab = 'products'">🛒 პროდუქტები</button>
+    <button [class.active]="activeTab === 'chefs'" (click)="activeTab = 'chefs'">👨‍🍳 შეფები</button>
+  </div>
+
+  <!-- პროდუქტები -->
+  <div *ngIf="activeTab === 'products'" class="tab-content">
+    <app-admin-products></app-admin-products>
+  </div>
+
+  <!-- შეფები -->
+  <div *ngIf="activeTab === 'chefs'" class="tab-content">
+    <app-admin-chefs></app-admin-chefs>
+  </div>
+</div>

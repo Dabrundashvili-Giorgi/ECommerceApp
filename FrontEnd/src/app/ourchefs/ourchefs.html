@@ -8,146 +8,40 @@
 
     <div class="swiper-container-wrapper">
       <div class="swiper ourchefs-swiper">
-        <div class="swiper-wrapper">
-          <!-- Slide 1 -->
-          <div class="swiper-slide">
-            <div class="chef-card">
-              <div class="image-wrapper">
-                <img src="assets/images/chef1.jpg" alt="Lusia Manuel">
-              </div>
-              <div class="info-wrapper">
-                <h3>Lusia Manuel</h3>
-                <p class="role">დამხმარე შეფ-მზარეული</p>
-                <div class="stars">
-                  <i class="fas fa-star filled"></i><i class="fas fa-star filled"></i><i class="fas fa-star filled"></i><i class="fas fa-star filled"></i><i class="fas fa-star"></i>
-                </div>
-                <div class="socials">
-                  <a href="#"><i class="fab fa-facebook-f"></i></a>
-                  <a href="#"><i class="fab fa-twitter"></i></a>
-                  <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                  <a href="#"><i class="fab fa-instagram"></i></a>
-                  <a href="#"><i class="fas fa-link"></i></a>
-                </div>
-                <a href="#" class="profile-link">პროფილის ნახვა</a>
-              </div>
-            </div>
-          </div>
-          <!-- Slide 2 -->
-          <div class="swiper-slide">
-            <div class="chef-card">
-              <div class="image-wrapper">
-                <img src="assets/images/chef2.jpg" alt="Michael Blair">
-              </div>
-              <div class="info-wrapper">
-                <h3>Michael Blair</h3>
-                <p class="role">სტაჟიორი შეფ-მზარეული</p>
-                <div class="stars">
-                  <i class="fas fa-star filled"></i><i class="fas fa-star filled"></i><i class="fas fa-star filled"></i><i class="fas fa-star filled"></i><i class="fas fa-star filled"></i>
-                </div>
-                <div class="socials">
-                  <a href="#"><i class="fab fa-facebook-f"></i></a>
-                  <a href="#"><i class="fab fa-twitter"></i></a>
-                  <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                  <a href="#"><i class="fab fa-instagram"></i></a>
-                  <a href="#"><i class="fas fa-link"></i></a>
-                </div>
-                <a href="#" class="profile-link">პროფილის ნახვა</a>
-              </div>
-            </div>
-          </div>
-          <!-- Slide 3 -->
-          <div class="swiper-slide">
-            <div class="chef-card">
-              <div class="image-wrapper">
-                <img src="assets/images/chef3.jpg" alt="Tereza Stiles">
-              </div>
-              <div class="info-wrapper">
-                <h3>Tereza Stiles</h3>
-                <p class="role">დამხმარე შეფ-მზარეული</p>
-                <div class="stars">
-                  <i class="fas fa-star filled"></i><i class="fas fa-star filled"></i><i class="fas fa-star filled"></i><i class="fas fa-star filled"></i><i class="fas fa-star"></i>
-                </div>
-                <div class="socials">
-                  <a href="#"><i class="fab fa-facebook-f"></i></a>
-                  <a href="#"><i class="fab fa-twitter"></i></a>
-                  <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                  <a href="#"><i class="fab fa-instagram"></i></a>
-                  <a href="#"><i class="fas fa-link"></i></a>
-                </div>
-                <a href="#" class="profile-link">პროფილის ნახვა</a>
-              </div>
-            </div>
-          </div>
-          <!-- Slide 4 -->
-          <div class="swiper-slide">
-            <div class="chef-card">
-              <div class="image-wrapper" style="background-color: #fdd2d8;">
-                <img src="assets/images/chef4.jpg" alt="Michelle Ormond">
-              </div>
-              <div class="info-wrapper">
-                <h3>Michelle Ormond</h3>
-                <p class="role">მთავარი შეფი</p>
-                <div class="stars">
-                  <i class="fas fa-star filled"></i><i class="fas fa-star filled"></i><i class="fas fa-star filled"></i><i class="fas fa-star filled"></i><i class="fas fa-star"></i>
-                </div>
-                <div class="socials">
-                  <a href="#"><i class="fab fa-facebook-f"></i></a>
-                  <a href="#"><i class="fab fa-twitter"></i></a>
-                  <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                  <a href="#"><i class="fab fa-instagram"></i></a>
-                  <a href="#"><i class="fas fa-link"></i></a>
-                </div>
-                <a href="#" class="profile-link">პროფილის ნახვა</a>
-              </div>
-            </div>
-          </div>
+<div class="swiper-wrapper">
+  <div class="swiper-slide" *ngFor="let chef of chefs">
+    <div class="chef-card">
+      <div class="image-wrapper">
+        <img [src]="chef.imageUrl || 'assets/images/no-image.png'" [alt]="chef.name">
 
-          <div class="swiper-slide">
-            <div class="chef-card">
-              <div class="image-wrapper" style="background-color: #fdd2d8;">
-                <img src="assets/images/chef5.jpg" alt="Michelle Ormond">
-              </div>
-              <div class="info-wrapper">
-                <h3>Michelle Ormond</h3>
-                <p class="role">მთავარი შეფი</p>
-                <div class="stars">
-                  <i class="fas fa-star filled"></i><i class="fas fa-star filled"></i><i class="fas fa-star filled"></i><i class="fas fa-star filled"></i><i class="fas fa-star"></i>
-                </div>
-                <div class="socials">
-                  <a href="#"><i class="fab fa-facebook-f"></i></a>
-                  <a href="#"><i class="fab fa-twitter"></i></a>
-                  <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                  <a href="#"><i class="fab fa-instagram"></i></a>
-                  <a href="#"><i class="fas fa-link"></i></a>
-                </div>
-                <a href="#" class="profile-link">პროფილის ნახვა</a>
-              </div>
-            </div>
-          </div>
-        
-          <div class="swiper-slide">
-            <div class="chef-card">
-              <div class="image-wrapper" style="background-color: #fdd2d8;">
-                <img src="assets/images/chef6.jpg" alt="Michelle Ormond">
-              </div>
-              <div class="info-wrapper">
-                <h3>Michelle Ormond</h3>
-                <p class="role">მთავარი შეფი</p>
-                <div class="stars">
-                  <i class="fas fa-star filled"></i><i class="fas fa-star filled"></i><i class="fas fa-star filled"></i><i class="fas fa-star filled"></i><i class="fas fa-star"></i>
-                </div>
-                <div class="socials">
-                  <a href="#"><i class="fab fa-facebook-f"></i></a>
-                  <a href="#"><i class="fab fa-twitter"></i></a>
-                  <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                  <a href="#"><i class="fab fa-instagram"></i></a>
-                  <a href="#"><i class="fas fa-link"></i></a>
-                </div>
-                <a href="#" class="profile-link">პროფილის ნახვა</a>
-              </div>
-            </div>
-          </div>
+        <div class="chef-overlay">
+          <p>{{ chef.description || 'მოკლე ინფორმაცია შეფზე მალე დაემატება.' }}</p>
         </div>
+      </div>
+
+      <div class="info-wrapper">
+        <h3>{{ chef.name }}</h3>
+        <p class="role">{{ chef.specialty }}</p>
+        <div class="stars">
+          <i class="fas fa-star filled"></i>
+          <i class="fas fa-star filled"></i>
+          <i class="fas fa-star filled"></i>
+          <i class="fas fa-star filled"></i>
+          <i class="fas fa-star"></i>
+        </div>
+
+        <div class="socials">
+          <a href="#"><i class="fab fa-facebook-f"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+          <a href="#"><i class="fab fa-linkedin-in"></i></a>
+        </div>
+
+        <a href="#" class="profile-link">პროფილის ნახვა</a>
+      </div>
+    </div>
+  </div>
+</div>
+
       </div>
 
       <div class="swiper-button-prev"></div>

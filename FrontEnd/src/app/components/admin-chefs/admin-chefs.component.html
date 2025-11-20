@@ -1,0 +1,49 @@
+<div class="admin-chefs-container">
+  <h2>👨‍🍳 შეფების მართვა</h2>
+
+  <form (ngSubmit)="saveChef()">
+    <div class="form-row">
+      <input type="text" [(ngModel)]="newChef.name" name="name" placeholder="სახელი" required>
+      <input type="text" [(ngModel)]="newChef.specialty" name="specialty" placeholder="პროფესია" required>
+    </div>
+
+    <input type="text" [(ngModel)]="newChef.imageUrl" name="imageUrl" placeholder="ფოტოს URL (assets/...)" required>
+
+    <textarea [(ngModel)]="newChef.description" name="description" placeholder="აღწერა"></textarea>
+
+    <button type="submit" class="save-btn">
+      {{ editingChef ? 'განახლება' : 'დამატება' }}
+    </button>
+  </form>
+
+  <hr>
+
+  <h3>არსებული შეფები</h3>
+  <table class="chefs-table" *ngIf="chefs.length > 0; else noData">
+    <thead>
+      <tr>
+        <th>ფოტო</th>
+        <th>სახელი</th>
+        <th>პროფესია</th>
+        <th>აღწერა</th>
+        <th>მოქმედება</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let c of chefs">
+        <td><img [src]="c.imageUrl || 'assets/images/no-image.png'" width="70" height="50"></td>
+        <td>{{ c.name }}</td>
+        <td>{{ c.specialty }}</td>
+        <td>{{ c.description }}</td>
+        <td>
+          <button (click)="editChef(c)" class="edit-btn">✏️</button>
+          <button (click)="deleteChef(c.id)" class="delete-btn">🗑️</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <ng-template #noData>
+    <p class="no-data">🚫 ჯერ შეფები არ არის დამატებული.</p>
+  </ng-template>
+</div>
