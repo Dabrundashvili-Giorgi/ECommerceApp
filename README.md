@@ -150,7 +150,7 @@ FrontEnd გაეშვება:
 **რეგისტრაცია**
 <img width="1895" height="877" alt="image" src="https://github.com/user-attachments/assets/b9a39697-af80-402b-8df6-d5922af182a1" />
 **Admin Panel**
-<img width="1895" height="877" alt="image" src="<img width="1888" height="948" alt="image" src="https://github.com/user-attachments/assets/1b694341-bd73-4636-ab41-279c8bb1ebf3" />
+<img width="1888" height="948" alt="image" src="https://github.com/user-attachments/assets/1b694341-bd73-4636-ab41-279c8bb1ebf3" />
 
 ---
 
